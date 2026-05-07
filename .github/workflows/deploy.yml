@@ -1,0 +1,24 @@
+name: Deploy MVP to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'mvp/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Deploy MVP
+        run: |
+          mkdir -p deploy
+          cp -r mvp/* deploy/
+          
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
