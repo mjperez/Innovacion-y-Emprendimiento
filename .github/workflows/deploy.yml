@@ -16,6 +16,7 @@ jobs:
         run: |
           mkdir -p deploy
           cp -r mvp/* deploy/
+          touch deploy/.nojekyll
           
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
