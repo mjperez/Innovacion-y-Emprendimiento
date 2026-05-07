@@ -5,18 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de Apoyo Institucional - INACAP</title>
     <style>
-        :root { --bg: #0d0d0d; --text: #f0f0f0; --accent: #8b0000; --card: #141414; }
-        body { background: var(--bg); color: var(--text); font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 1.5rem; box-sizing: border-box; }
-        .container { width: 100%; max-width: 400px; background: var(--card); padding: 2rem; border-radius: 8px; border: 1px solid #333; text-align: left; }
-        
-        /* Sección de Introducción */
-        h1 { font-size: 1.3rem; margin-top: 0; font-weight: 500; text-align: center; color: #fff; }
-        .intro { font-size: 0.85rem; color: #aaa; line-height: 1.5; margin-bottom: 2rem; border-bottom: 1px solid #2a2a2a; padding-bottom: 1rem; text-align: center; }
-        
-        .group-label { font-size: 0.7rem; color: #666; text-transform: uppercase; margin: 1.5rem 0 0.5rem; letter-spacing: 1px; }
-        .btn { display: block; width: 100%; padding: 1.1rem; margin-bottom: 0.8rem; background: #1a1a1a; color: #fff; text-decoration: none; border: 1px solid #444; border-radius: 4px; font-size: 0.95rem; transition: 0.2s; box-sizing: border-box; text-align: center; }
-        .btn:active { background: #2a2a2a; border-color: #666; }
-        .btn-direct { border-left: 4px solid var(--accent); }
+        :root { 
+            --bg: #f5f6f8; 
+            --text: #333333; 
+            --accent: #cc0000; /* Rojo INACAP */
+            --card: #ffffff; 
+            --border: #e1e4e8;
+        }
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            font-family: system-ui, -apple-system, sans-serif; 
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; margin: 0; padding: 1.5rem; box-sizing: border-box; 
+        }
+        .container { 
+            width: 100%; max-width: 400px; 
+            background: var(--card); 
+            padding: 2rem; border-radius: 8px; 
+            border: 1px solid var(--border); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: left; 
+        }
+        h1 { 
+            font-size: 1.3rem; margin-top: 0; font-weight: 600; 
+            text-align: center; color: var(--accent); 
+        }
+        .intro { 
+            font-size: 0.85rem; color: #555; line-height: 1.5; 
+            margin-bottom: 2rem; border-bottom: 1px solid var(--border); 
+            padding-bottom: 1rem; text-align: center; 
+        }
+        .group-label { 
+            font-size: 0.7rem; color: #777; text-transform: uppercase; 
+            margin: 1.5rem 0 0.5rem; letter-spacing: 1px; font-weight: 500;
+        }
+        form { margin: 0; padding: 0; }
+        .btn { 
+            display: block; width: 100%; padding: 1.1rem; margin-bottom: 0.8rem; 
+            background: #ffffff; color: #333; border: 1px solid #ccc; 
+            border-radius: 4px; font-size: 0.95rem; font-weight: 500;
+            transition: all 0.2s; box-sizing: border-box; text-align: center; 
+            cursor: pointer; font-family: inherit;
+        }
+        .btn:hover, .btn:active { 
+            background: #f0f0f0; border-color: #aaa; 
+        }
+        .btn-direct { 
+            border-left: 4px solid var(--accent); 
+            background: #fafafa;
+        }
     </style>
 </head>
 <body>
@@ -29,15 +67,66 @@
         </p>
         
         <div class="group-label">Autogestión Anónima</div>
-        <a href="https://grke7u3.short.gy/innovacion-salud" class="btn">Crisis de Salud Mental</a>
-        <a href="https://grke7u3.short.gy/innovacion-movilidad" class="btn">Apoyo en Movilidad</a>
-        <a href="https://grke7u3.short.gy/innovacion-neuro" class="btn">Soporte Neurodivergente</a>
+
+        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
+            <input type="hidden" name="Seleccion" value="Ruta: Salud Mental / Crisis">
+            <input type="hidden" name="_subject" value="Métrica: Salud Mental">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/gracias.html">
+            <button type="submit" class="btn">Crisis de Salud Mental</button>
+        </form>
+
+        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
+            <input type="hidden" name="Seleccion" value="Ruta: Accesibilidad / Movilidad">
+            <input type="hidden" name="_subject" value="Métrica: Movilidad">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/gracias.html">
+            <button type="submit" class="btn">Apoyo en Movilidad</button>
+        </form>
+
+        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
+            <input type="hidden" name="Seleccion" value="Ruta: Soporte Neurodivergente">
+            <input type="hidden" name="_subject" value="Métrica: Neurodivergencia">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/gracias.html">
+            <button type="submit" class="btn">Soporte Neurodivergente</button>
+        </form>
 
         <div class="group-label">Asistencia Presencial</div>
-        <a href="https://grke7u3.short.gy/innovacion-dae" class="btn btn-direct">Contactar DAE / Consejería</a>
+        
+        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
+            <input type="hidden" name="Seleccion" value="Ruta: Contacto DAE">
+            <input type="hidden" name="_subject" value="Métrica: Contacto DAE">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/gracias.html">
+            <button type="submit" class="btn btn-direct">Contactar DAE / Consejería</button>
+        </form>
     </div>
 </body>
-</html> 
- 
- 
- 
+<script>
+        // 1. Al cargar la página, verificar si el usuario ya votó
+        document.addEventListener("DOMContentLoaded", function() {
+            if (localStorage.getItem("mvp_inacap_votado")) {
+                document.querySelector(".container").innerHTML = `
+                    <h1 style="color:#cc0000;">Registro Completado</h1>
+                    <p style="color:#555; font-size:0.95rem; margin-top:2rem; text-align:center;">
+                        Tu selección ya fue registrada en nuestro sistema de métricas de forma anónima.<br><br>
+                        Para evitar duplicidad de datos, solo se permite una interacción por dispositivo.
+                    </p>
+                `;
+            }
+        });
+
+        // 2. Escuchar cuando el usuario hace clic en CUALQUIER formulario
+        const formularios = document.querySelectorAll('form');
+        formularios.forEach(form => {
+            form.addEventListener('submit', function(evento) {
+                if (localStorage.getItem("mvp_inacap_votado")) {
+                    evento.preventDefault();
+                    return;
+                }
+                localStorage.setItem("mvp_inacap_votado", "true");
+            });
+        });
+</script>
+</html>
