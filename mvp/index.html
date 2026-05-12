@@ -100,8 +100,8 @@
     </div>
     <script>
         const currentUrl = new URL(window.location.href);
-        const lastSegment = currentUrl.pathname.split('/').filter(Boolean).pop() || '';
-        const isFilePath = lastSegment.includes('.');
+        const lastPathSegment = currentUrl.pathname.split('/').filter(Boolean).pop() || '';
+        const isFilePath = lastPathSegment.includes('.');
 
         if (!isFilePath && !currentUrl.pathname.endsWith('/')) {
             currentUrl.pathname = `${currentUrl.pathname}/`;
