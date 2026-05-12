@@ -46,14 +46,10 @@
             background: #ffffff; color: #333; border: 1px solid #ccc; 
             border-radius: 4px; font-size: 0.95rem; font-weight: 500;
             transition: all 0.2s; box-sizing: border-box; text-align: center; 
-            cursor: pointer; font-family: inherit;
+            cursor: pointer; font-family: inherit; text-decoration: none;
         }
         .btn:hover, .btn:active { 
             background: #f0f0f0; border-color: #aaa; 
-        }
-        .btn-direct { 
-            border-left: 4px solid var(--accent); 
-            background: #fafafa;
         }
     </style>
 </head>
@@ -62,73 +58,61 @@
         <h1>Centro de Autonomía</h1>
         
         <p class="intro">
-            Bienvenido. Este portal es un prototipo de sitio web para centralizar los recursos de inclusión de INACAP Santiago Sur. 
-            Selecciona una ruta para acceder a protocolos inmediatos de forma <strong>estrictamente anónima</strong> o solicita asistencia directa.</p>
-<p class="intro">
-De forma de testear el prototipo, solamente puedes elegir UNA opción.
-        </p>
+            Te damos la bienvenida. Este portal está diseñado para que puedas gestionar tu situación de forma autónoma
+            con recursos y orientaciones disponibles en INACAP Santiago Sur.</p>
         
         <div class="group-label">Autogestión Anónima</div>
 
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
+        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST" data-next-target="crisis-salud-mental.html">
             <input type="hidden" name="Seleccion" value="Ruta: Salud Mental / Crisis">
             <input type="hidden" name="_subject" value="Métrica: Salud Mental">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/gracias.html">
+            <input type="hidden" name="_next" value="crisis-salud-mental.html">
             <button type="submit" class="btn">Crisis de Salud Mental</button>
         </form>
 
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
+        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST" data-next-target="apoyo-movilidad.html">
             <input type="hidden" name="Seleccion" value="Ruta: Accesibilidad / Movilidad">
             <input type="hidden" name="_subject" value="Métrica: Movilidad">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/gracias.html">
+            <input type="hidden" name="_next" value="apoyo-movilidad.html">
             <button type="submit" class="btn">Apoyo en Movilidad</button>
         </form>
 
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
+        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST" data-next-target="soporte-neurodivergente.html">
             <input type="hidden" name="Seleccion" value="Ruta: Soporte Neurodivergente">
             <input type="hidden" name="_subject" value="Métrica: Neurodivergencia">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/gracias.html">
+            <input type="hidden" name="_next" value="soporte-neurodivergente.html">
             <button type="submit" class="btn">Soporte Neurodivergente</button>
         </form>
 
-        <div class="group-label">Asistencia Presencial</div>
-        
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
+        <div class="group-label">Contacto Directo</div>
+
+        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST" data-next-target="contacto-dae.html">
             <input type="hidden" name="Seleccion" value="Ruta: Contacto DAE">
             <input type="hidden" name="_subject" value="Métrica: Contacto DAE">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/gracias.html">
-            <button type="submit" class="btn btn-direct">Contactar DAE / Consejería</button>
+            <input type="hidden" name="_next" value="contacto-dae.html">
+            <button type="submit" class="btn">Contactar DAE Santiago Sur</button>
         </form>
+
     </div>
-</body>
-<script>
-        // 1. Al cargar la página, verificar si el usuario ya votó
-        document.addEventListener("DOMContentLoaded", function() {
-            if (localStorage.getItem("mvp_inacap_votado")) {
-                document.querySelector(".container").innerHTML = `
-                    <h1 style="color:#cc0000;">Registro Completado</h1>
-                    <p style="color:#555; font-size:0.95rem; margin-top:2rem; text-align:center;">
-                        Tu selección ya fue registrada en nuestro sistema de métricas de forma anónima.<br><br>
-                        Para evitar duplicidad de datos, solo se permite una interacción por dispositivo.
-                    </p>
-                `;
+    <script>
+        const currentUrl = new URL(window.location.href);
+        const lastPathSegment = currentUrl.pathname.split('/').filter(Boolean).pop() || '';
+        const isFilePath = lastPathSegment.includes('.');
+
+        if (!isFilePath && !currentUrl.pathname.endsWith('/')) {
+            currentUrl.pathname = `${currentUrl.pathname}/`;
+        }
+
+        document.querySelectorAll('form[data-next-target]').forEach((form) => {
+            const nextInput = form.querySelector('input[name="_next"]');
+            if (nextInput) {
+                nextInput.value = new URL(form.dataset.nextTarget, currentUrl).href;
             }
         });
-
-        // 2. Escuchar cuando el usuario hace clic en CUALQUIER formulario
-        const formularios = document.querySelectorAll('form');
-        formularios.forEach(form => {
-            form.addEventListener('submit', function(evento) {
-                if (localStorage.getItem("mvp_inacap_votado")) {
-                    evento.preventDefault();
-                    return;
-                }
-                localStorage.setItem("mvp_inacap_votado", "true");
-            });
-        });
-</script>
+    </script>
+</body>
 </html>
