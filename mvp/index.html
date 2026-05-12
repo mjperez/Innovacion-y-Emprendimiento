@@ -63,40 +63,51 @@
         
         <div class="group-label">Autogestión Anónima</div>
 
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
+        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST" data-next-target="crisis-salud-mental.html">
             <input type="hidden" name="Seleccion" value="Ruta: Salud Mental / Crisis">
             <input type="hidden" name="_subject" value="Métrica: Salud Mental">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/crisis-salud-mental.html">
+            <input type="hidden" name="_next" value="crisis-salud-mental.html">
             <button type="submit" class="btn">Crisis de Salud Mental</button>
         </form>
 
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
+        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST" data-next-target="apoyo-movilidad.html">
             <input type="hidden" name="Seleccion" value="Ruta: Accesibilidad / Movilidad">
             <input type="hidden" name="_subject" value="Métrica: Movilidad">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/apoyo-movilidad.html">
+            <input type="hidden" name="_next" value="apoyo-movilidad.html">
             <button type="submit" class="btn">Apoyo en Movilidad</button>
         </form>
 
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
+        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST" data-next-target="soporte-neurodivergente.html">
             <input type="hidden" name="Seleccion" value="Ruta: Soporte Neurodivergente">
             <input type="hidden" name="_subject" value="Métrica: Neurodivergencia">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/soporte-neurodivergente.html">
+            <input type="hidden" name="_next" value="soporte-neurodivergente.html">
             <button type="submit" class="btn">Soporte Neurodivergente</button>
         </form>
 
         <div class="group-label">Contacto Directo</div>
 
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
+        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST" data-next-target="contacto-dae-consejeria.html">
             <input type="hidden" name="Seleccion" value="Ruta: Contacto DAE">
             <input type="hidden" name="_subject" value="Métrica: Contacto DAE">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/contacto-dae-consejeria.html">
+            <input type="hidden" name="_next" value="contacto-dae-consejeria.html">
             <button type="submit" class="btn">Contactar DAE / Consejería</button>
         </form>
 
     </div>
+    <script>
+        const basePath = window.location.pathname.replace(/[^/]*$/, '');
+        const baseUrl = `${window.location.origin}${basePath}`;
+
+        document.querySelectorAll('form[data-next-target]').forEach((form) => {
+            const nextInput = form.querySelector('input[name="_next"]');
+            if (nextInput) {
+                nextInput.value = `${baseUrl}${form.dataset.nextTarget}`;
+            }
+        });
+    </script>
 </body>
 </html>
