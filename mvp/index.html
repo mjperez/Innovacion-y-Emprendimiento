@@ -99,13 +99,18 @@
 
     </div>
     <script>
-        const basePath = window.location.pathname.replace(/[^/]*$/, '');
-        const baseUrl = `${window.location.origin}${basePath}`;
+        const currentUrl = new URL(window.location.href);
+        const lastSegment = currentUrl.pathname.split('/').filter(Boolean).pop() || '';
+        const isFilePath = lastSegment.includes('.');
+
+        if (!isFilePath && !currentUrl.pathname.endsWith('/')) {
+            currentUrl.pathname = `${currentUrl.pathname}/`;
+        }
 
         document.querySelectorAll('form[data-next-target]').forEach((form) => {
             const nextInput = form.querySelector('input[name="_next"]');
             if (nextInput) {
-                nextInput.value = `${baseUrl}${form.dataset.nextTarget}`;
+                nextInput.value = new URL(form.dataset.nextTarget, currentUrl).href;
             }
         });
     </script>
