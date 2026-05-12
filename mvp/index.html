@@ -62,73 +62,20 @@
         <h1>Centro de Autonomía</h1>
         
         <p class="intro">
-            Bienvenido. Este portal es un prototipo de sitio web para centralizar los recursos de inclusión de INACAP Santiago Sur. 
-            Selecciona una ruta para acceder a protocolos inmediatos de forma <strong>estrictamente anónima</strong> o solicita asistencia directa.</p>
-<p class="intro">
-De forma de testear el prototipo, solamente puedes elegir UNA opción.
-        </p>
+            Bienvenido. Este portal reúne rutas de apoyo y acompañamiento disponibles en INACAP Santiago Sur.
+            Selecciona una opción para revisar información y canales de ayuda disponibles.</p>
         
         <div class="group-label">Autogestión Anónima</div>
 
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
-            <input type="hidden" name="Seleccion" value="Ruta: Salud Mental / Crisis">
-            <input type="hidden" name="_subject" value="Métrica: Salud Mental">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/gracias.html">
-            <button type="submit" class="btn">Crisis de Salud Mental</button>
-        </form>
+        <a class="btn" href="crisis-salud-mental.html">Crisis de Salud Mental</a>
 
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
-            <input type="hidden" name="Seleccion" value="Ruta: Accesibilidad / Movilidad">
-            <input type="hidden" name="_subject" value="Métrica: Movilidad">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/gracias.html">
-            <button type="submit" class="btn">Apoyo en Movilidad</button>
-        </form>
+        <a class="btn" href="apoyo-movilidad.html">Apoyo en Movilidad</a>
 
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
-            <input type="hidden" name="Seleccion" value="Ruta: Soporte Neurodivergente">
-            <input type="hidden" name="_subject" value="Métrica: Neurodivergencia">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/gracias.html">
-            <button type="submit" class="btn">Soporte Neurodivergente</button>
-        </form>
+        <a class="btn" href="soporte-neurodivergente.html">Soporte Neurodivergente</a>
 
         <div class="group-label">Asistencia Presencial</div>
         
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST">
-            <input type="hidden" name="Seleccion" value="Ruta: Contacto DAE">
-            <input type="hidden" name="_subject" value="Métrica: Contacto DAE">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://mjperez.github.io/Innovacion-y-Emprendimiento/gracias.html">
-            <button type="submit" class="btn btn-direct">Contactar DAE / Consejería</button>
-        </form>
+        <a class="btn btn-direct" href="contacto-dae-consejeria.html">Contactar DAE / Consejería</a>
     </div>
 </body>
-<script>
-        // 1. Al cargar la página, verificar si el usuario ya votó
-        document.addEventListener("DOMContentLoaded", function() {
-            if (localStorage.getItem("mvp_inacap_votado")) {
-                document.querySelector(".container").innerHTML = `
-                    <h1 style="color:#cc0000;">Registro Completado</h1>
-                    <p style="color:#555; font-size:0.95rem; margin-top:2rem; text-align:center;">
-                        Tu selección ya fue registrada en nuestro sistema de métricas de forma anónima.<br><br>
-                        Para evitar duplicidad de datos, solo se permite una interacción por dispositivo.
-                    </p>
-                `;
-            }
-        });
-
-        // 2. Escuchar cuando el usuario hace clic en CUALQUIER formulario
-        const formularios = document.querySelectorAll('form');
-        formularios.forEach(form => {
-            form.addEventListener('submit', function(evento) {
-                if (localStorage.getItem("mvp_inacap_votado")) {
-                    evento.preventDefault();
-                    return;
-                }
-                localStorage.setItem("mvp_inacap_votado", "true");
-            });
-        });
-</script>
 </html>
