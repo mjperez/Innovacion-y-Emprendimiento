@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Validación - INACAP</title>
+    <style>
+        :root {
+            --bg: #0e0f12;
+            --text: #e8e8e8;
+            --accent: #ff6b6b;
+            --card: #16181d;
+            --border: #2b2f38;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1.5rem;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            max-width: 420px;
+            background: var(--card);
+            padding: 2.2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+            text-align: left;
+        }
+        h1 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            font-weight: 600;
+            text-align: center;
+            color: var(--accent);
+        }
+        .intro {
+            font-size: 0.9rem;
+            color: #c9c9c9;
+            line-height: 1.6;
+            margin-bottom: 1.8rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.2rem;
+            text-align: center;
+        }
+        .group-label {
+            font-size: 0.7rem;
+            color: #9aa0a6;
+            text-transform: uppercase;
+            margin: 1.4rem 0 0.6rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: #1d2129;
+            color: #f2f2f2;
+            border: 1px solid #323845;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            box-sizing: border-box;
+            text-align: center;
+            cursor: pointer;
+            font-family: inherit;
+            text-decoration: none;
+        }
+        .btn:hover, .btn:active {
+            background: #252a35;
+            border-color: #4a5160;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Centro de Autonomía</h1>
+
+        <p class="intro">
+            Esta es una versión de validación. Todos los accesos redirigen al mensaje de confirmación
+            histórico ubicado en <strong>gracias.html</strong>.
+        </p>
+
+        <div class="group-label">Autogestión Anónima (Validación)</div>
+
+        <a class="btn" href="gracias.html">Crisis de Salud Mental</a>
+        <a class="btn" href="gracias.html">Apoyo en Movilidad</a>
+        <a class="btn" href="gracias.html">Soporte Neurodivergente</a>
+
+        <div class="group-label">Contacto Directo (Validación)</div>
+
+        <a class="btn" href="gracias.html">Contactar DAE Santiago Sur</a>
+    </div>
+</body>
+</html>
