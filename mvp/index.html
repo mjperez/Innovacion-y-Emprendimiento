@@ -40,7 +40,6 @@
             font-size: 0.7rem; color: #777; text-transform: uppercase; 
             margin: 1.5rem 0 0.5rem; letter-spacing: 1px; font-weight: 500;
         }
-        form { margin: 0; padding: 0; }
         .btn { 
             display: block; width: 100%; padding: 1.1rem; margin-bottom: 0.8rem; 
             background: #ffffff; color: #333; border: 1px solid #ccc; 
@@ -63,56 +62,14 @@
         
         <div class="group-label">Autogestión Anónima</div>
 
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST" data-next-target="crisis-salud-mental.html">
-            <input type="hidden" name="Seleccion" value="Ruta: Salud Mental / Crisis">
-            <input type="hidden" name="_subject" value="Métrica: Salud Mental">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="crisis-salud-mental.html">
-            <button type="submit" class="btn">Crisis de Salud Mental</button>
-        </form>
-
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST" data-next-target="apoyo-movilidad.html">
-            <input type="hidden" name="Seleccion" value="Ruta: Accesibilidad / Movilidad">
-            <input type="hidden" name="_subject" value="Métrica: Movilidad">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="apoyo-movilidad.html">
-            <button type="submit" class="btn">Apoyo en Movilidad</button>
-        </form>
-
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST" data-next-target="soporte-neurodivergente.html">
-            <input type="hidden" name="Seleccion" value="Ruta: Soporte Neurodivergente">
-            <input type="hidden" name="_subject" value="Métrica: Neurodivergencia">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="soporte-neurodivergente.html">
-            <button type="submit" class="btn">Soporte Neurodivergente</button>
-        </form>
+        <a class="btn" href="crisis-salud-mental.html">Crisis de Salud Mental</a>
+        <a class="btn" href="apoyo-movilidad.html">Apoyo en Movilidad</a>
+        <a class="btn" href="soporte-neurodivergente.html">Soporte Neurodivergente</a>
 
         <div class="group-label">Contacto Directo</div>
 
-        <form action="https://formsubmit.co/a13c5d2e465d361cd7ce47b941aeea2e" method="POST" data-next-target="contacto-dae.html">
-            <input type="hidden" name="Seleccion" value="Ruta: Contacto DAE">
-            <input type="hidden" name="_subject" value="Métrica: Contacto DAE">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="contacto-dae.html">
-            <button type="submit" class="btn">Contactar DAE Santiago Sur</button>
-        </form>
+        <a class="btn" href="contacto-dae.html">Contactar DAE Santiago Sur</a>
 
     </div>
-    <script>
-        const currentUrl = new URL(window.location.href);
-        const lastPathSegment = currentUrl.pathname.split('/').filter(Boolean).pop() || '';
-        const isFilePath = lastPathSegment.includes('.');
-
-        if (!isFilePath && !currentUrl.pathname.endsWith('/')) {
-            currentUrl.pathname = `${currentUrl.pathname}/`;
-        }
-
-        document.querySelectorAll('form[data-next-target]').forEach((form) => {
-            const nextInput = form.querySelector('input[name="_next"]');
-            if (nextInput) {
-                nextInput.value = new URL(form.dataset.nextTarget, currentUrl).href;
-            }
-        });
-    </script>
 </body>
 </html>
